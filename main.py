@@ -49,6 +49,14 @@ while is_game:
         if event.type == pygame.QUIT:  # Исправлено: добавлен отступ
             is_game = False
 
+
+    ball.rect.x += speed_x
+    ball.rect.y += speed_y
+    
+    if ball.rect.y > 450 or ball.rect.y < 50:
+        speed_y *= -1
+
+
     racket1.update_l()
 
     racket2.update_r()
