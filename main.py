@@ -1,6 +1,6 @@
 import pygame
 
-win = pygame.display.set_mode((700, 500))  # Исправлено: добавлены скобки для кортежа
+win = pygame.display.set_mode((600, 500))  # Исправлено: добавлены скобки для кортежа
 clock = pygame.time.Clock()
 
 win.fill((0, 220, 255))  # Исправлено: добавлены скобки для кортежа цвета
@@ -34,6 +34,12 @@ class Player(GameSprite):
             self.rect.y += self.speed
 
 
+racket1 = Player('racket.png', 30, 200, 4, 50, 150)
+racket2 = Player('racket.png', 520, 200, 4, 50, 150)
+ball = GameSprite('tenis_ball.png', 200, 200, 4, 50, 50)
+
+
+
 is_game = True
 
 
@@ -41,5 +47,13 @@ while is_game:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  # Исправлено: добавлен отступ
             is_game = False
+
+
+
+    racket1.reset()
+    racket2.reset()
+    ball.reset()
+
+    
     pygame.display.update()
     clock.tick(40)
